@@ -8,6 +8,19 @@ import thunkMiddleware from 'redux-thunk' // https://github.com/gaearon/redux-th
 
 export const GOT_CANDIES = 'GOT_CANDIES'
 export const ADD_CANDIES = 'ADD_CANDIES'
+export const INCREMENT = 'INCREMENT'
+export const DECREMENT = 'DECREMENT'
+
+export const subtract = (amount) =>  ({
+  type: DECREMENT,
+  amount
+})
+
+export const addition = (amount) =>  ({
+  type: INCREMENT,
+  amount
+})
+
 
 export const gotCandy = (candy) => ({
   type: GOT_CANDIES,

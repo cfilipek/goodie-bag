@@ -1,6 +1,7 @@
 import React from 'react'
 import AllCandies from './AllCandies'
 import Home from './Home'
+import SingleCandy from './SingleCandy'
 import {Route, Link} from 'react-router-dom'
 
 
@@ -15,8 +16,8 @@ const Root = () => {
       <main>
 
         <Route exact path='/' component={Home} />
-        <Route path='/candies' component={AllCandies} />
-
+        <Route exact path='/candies' component={AllCandies} />
+        <Route path='/candies/edit/:id' component={SingleCandy}/>
       </main>
     </div>
   )

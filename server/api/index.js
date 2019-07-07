@@ -15,6 +15,39 @@ router.get('/candies', async (req,res,next)=> {
  }
 })
 
+router.get('/candies/:id', async (req,res,next)=> {
+  try {
+    const singleCandies = await Candy.findOne({
+      where: {
+        id: req.params.id
+      }
+    });
+    // res.status(200);
+    res.status(200).json(singleCandies);
+
+ } catch (error) {
+   next(error)
+ }
+})
+
+// router.put('/candies/:id', async (req,res,next)=> {
+//   try {
+//     const singleCandies = await Candy.findOne({
+//       where: {
+//         id: req.params.id
+//       }
+//     });
+//     const candy = singleCandies.update(req.body)
+//     // res.status(200);
+//     res.status(200).json(candy);
+
+//  } catch (error) {
+//    next(error)
+//  }
+// })
+
+
+
 
 router.post('/candies', async (req,res,next)=> {
   try {

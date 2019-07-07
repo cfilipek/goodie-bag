@@ -1,6 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {getCandy} from '../store'
+import {Link} from 'react-router-dom'
+
 
 class AllCandies extends React.Component {
 
@@ -9,6 +11,8 @@ componentDidMount(){
   this.props.getCandy();
 
 }
+
+
 
 
 render() {
@@ -23,7 +27,7 @@ render() {
           <h2 className="candies_title">Candies</h2>
           {candy.map(singleCandy => (
             <div className="candies_wrapper" key={singleCandy.id}>
-            <h4>{singleCandy.name}</h4>
+            <Link to={`/candies/edit/${singleCandy.id}`}><h4>{singleCandy.name}</h4></Link>
             <h5>Quantity: {singleCandy.quantity}</h5>
             <img src={`${singleCandy.imageUrl}`} />
 

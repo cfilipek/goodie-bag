@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux';
-import {addMoreCandy, getCandy} from '../store'
+import {addMoreCandy} from '../store'
+import {Form, FormControl, Button} from 'react-bootstrap'
 
 
 class Home extends React.Component {
@@ -48,7 +49,7 @@ class Home extends React.Component {
           <p>What did you get for halloween?</p>
           <p>Time to keep inventory!</p>
         <div>
-          <form onSubmit={this.handleSubmit}>
+          {/* <form onSubmit={this.handleSubmit}>
             <input
               placeholder='candy name'
               value={this.state.name}
@@ -81,7 +82,19 @@ class Home extends React.Component {
               type="text"
             />
             <button type="submit">Add Candy</button>
-         </form>
+         </form> */}
+         <Form inline className='center' onSubmit={this.handleSubmit} >
+            <FormControl placeholder='candy name' value={this.state.name} name="name"
+              type="text"
+            onChange={this.handleChange}/>
+            <FormControl placeholder='description' value={this.state.description} name="description" type="text"
+            onChange={this.handleChange}/>
+             <FormControl placeholder='quantity' value={this.state.quantity} name="quantity" type="number"
+            onChange={this.handleChange}/>
+             <FormControl placeholder='image URL' value={this.state.imageUrl} name="imageUrl" type="text"
+            onChange={this.handleChange}/>
+            <Button type='submit'>Add Candy</Button>
+        </Form>
         </div>
       </div>
     )
